@@ -44,4 +44,4 @@ def projects():
     return render_template('projects.html', stack_contents=stack_contents)  # Pass stack_contents to template
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
