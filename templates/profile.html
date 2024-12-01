@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #18191a;
+            color: #e4e6eb;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            flex: 1;
+        }
+        nav {
+            background-color: #316FF6;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        h1 {
+            color: #e4e6eb;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+        .profile-item {
+            text-align: center;
+        }
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid #33a351;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-text {
+            margin-top: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #242526;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Nash Aguas Group</h1>
+
+        <div class="image-container">
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image.png') }}" alt="Image 1">
+                </div>
+                <div class="profile-text">
+                    <strong>John Devis Cuyos</strong><br>
+                    Photography, Hiking
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image2.png') }}" alt="Image 2">
+                </div>
+                <div class="profile-text">
+                    <strong>Shervin Mangulabnan</strong><br>
+                    Painting, Coding
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image3.png') }}" alt="Image 3">
+                </div>
+                <div class="profile-text">
+                    <strong>Shan Marc Diong</strong><br>
+                    Music, Reading
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image4.png') }}" alt="Image 4">
+                </div>
+                <div class="profile-text">
+                    <strong>Ralph Cyrel Ronda</strong><br>
+                    Sports, Gaming
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image5.png') }}" alt="Image 5">
+                </div>
+                <div class="profile-text">
+                    <strong>Thea Uy</strong><br>
+                    Traveling, Cooking
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image6.png') }}" alt="Image 6">
+                </div>
+                <div class="profile-text">
+                    <strong>April Varron</strong><br>
+                    Writing, Gardening
+                </div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-image">
+                    <img src="{{ url_for('static', filename='image7.png') }}" alt="Image 7">
+                </div>
+                <div class="profile-text">
+                    <strong>Nash Erich Garcia</strong><br>
+                    Dancing, Movies
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="{{ url_for('home') }}">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="{{ url_for('profile') }}">
+            <i class="fas fa-user"></i>
+            Profile
+        </a>
+        <a href="{{ url_for('projects') }}">
+            <i class="fas fa-project-diagram"></i>
+            Projects
+        </a>
+    </nav>
+</body>
+</html>
