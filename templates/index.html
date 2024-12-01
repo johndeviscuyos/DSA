@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #18191a;
+            color: #e4e6eb;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        nav {
+            background-color: #316FF6;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        h1 {
+            color: #e4e6eb;
+            text-align: center;
+        }
+        .gif-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Nash Aguas Team Website</h1>
+        <p>This is the homepage of our personal website.</p>
+
+        <div class="gif-container">
+            <img src="{{ url_for('static', filename='gif1.gif') }}" alt="Your GIF description">
+        </div>
+    </div>
+
+    <nav>
+        <a href="{{ url_for('home') }}">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="{{ url_for('profile') }}">
+            <i class="fas fa-user"></i>
+            Profile
+        </a>
+        <a href="{{ url_for('projects') }}">
+            <i class="fas fa-project-diagram"></i>
+            Projects
+        </a>
+    </nav>
+</body>
+</html>
