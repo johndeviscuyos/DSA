@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request
-from stack import Stack  # Import the Stack class
+from stack import Stack
 
 app = Flask(__name__)
 
-# Initialize an empty stack
 my_stack = Stack()
 
 @app.route('/')

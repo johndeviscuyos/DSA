@@ -1,83 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #18191a;
-            color: #e4e6eb;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .container {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        nav {
-            background-color: #316FF6;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 100;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        nav i {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        h1 {
-            color: #e4e6eb;
-            text-align: center;
-        }
-        .gif-container {
-            margin-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #18191a;
+      color: #e4e6eb;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* Add fade-in transition for body content */
+      opacity: 0; /* Initially hide the body content */
+      transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+    }
+
+    /* Make body content visible when fade-in class is added */
+    body.fade-in {
+      opacity: 1;
+    }
+
+    .container {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* Add fade-in transition for container content */
+      opacity: 0; /* Initially hide the container content */
+      transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+    }
+
+    /* Make container content visible when fade-in class is added to body */
+    body.fade-in .container {
+      opacity: 1;
+    }
+
+    nav {
+      background-color: #316FF6;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Add fade-out transition for links */
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+      /* Slightly reduce opacity on hover */
+    }
+
+    nav i {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      color: #e4e6eb;
+      text-align: center;
+      /* Add fade-in transition for the heading */
+      opacity: 0; /* Initially hide the heading */
+      transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+    }
+
+    /* Make heading visible when fade-in class is added to body */
+    body.fade-in h1 {
+      opacity: 1;
+    }
+
+    .gif-container {
+      margin-bottom: 20px;
+      /* Add fade-in transition for the GIF container */
+      opacity: 0; /* Initially hide the GIF container */
+      transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+    }
+
+    /* Make GIF container visible when fade-in class is added to body */
+    body.fade-in .gif-container {
+      opacity: 1;
+    }
+
+    /* Add fade-in transition for the GIF image */
+    .gif-container img {
+      opacity: 0; /* Initially hide the GIF image */
+      transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+    }
+
+    /* Make GIF image visible when fade-in class is added to body */
+    body.fade-in .gif-container img {
+      opacity: 1;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to Nash Aguas Team Website</h1>
-        <p>WORK IS STILL IN PROGRESS.</p>
+  <div class="container">
+    <h1>Welcome to Nash Aguas Team Website</h1>
+    <p>THIS WEBSITE IS STILL IN PROGRESS.</p>
 
-        <div class="gif-container">
-            <img src="{{ url_for('static', filename='gif1.gif') }}" alt="Your GIF description">
-        </div>
+    <div class="gif-container">
+      <img src="{{ url_for('static', filename='gif1.gif') }}" alt="Your GIF description">
     </div>
+  </div>
 
-    <nav>
-        <a href="{{ url_for('home') }}">
-            <i class="fas fa-home"></i>
-            Home
-        </a>
-        <a href="{{ url_for('profile') }}">
-            <i class="fas fa-user"></i>
-            Profile
-        </a>
-        <a href="{{ url_for('projects') }}">
-            <i class="fas fa-project-diagram"></i>
-            Projects
-        </a>
-    </nav>
+  <nav>
+    <a href="{{ url_for('home') }}">
+      <i class="fas fa-home"></i>
+      Home
+    </a>
+    <a href="{{ url_for('profile') }}">
+      <i class="fas fa-user"></i>
+      Profile
+    </a>
+    <a href="{{ url_for('projects') }}">
+      <i class="fas fa-project-diagram"></i>
+      Projects
+    </a>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add the fade-in class to the body to trigger the fade-in effect
+      document.body.classList.add('fade-in');
+
+      // Add event listeners to all links for fade effect
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent the default link behavior
+          document.body.classList.remove('fade-in'); // Fade out the page
+          setTimeout(() => {
+            window.location.href = this.href; // Redirect to the new page
+          }, 500); // Wait for the fade-out to complete
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
