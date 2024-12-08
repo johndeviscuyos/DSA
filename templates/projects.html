@@ -14,11 +14,23 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.5s ease-in-out; /* Add transition for body */
+    }
+
+    body.fade-in {
+      opacity: 1; /* Shown on load */
     }
 
     .container {
       padding: 20px;
       flex: 1;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.5s ease-in-out; /* Add transition for container */
+    }
+
+    body.fade-in .container {
+      opacity: 1; /* Shown on load */
     }
 
     nav {
@@ -40,6 +52,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: opacity 0.5s ease-in-out; /* Add transition for nav links */
+    }
+
+    nav a:hover {
+      opacity: 0.7;
     }
 
     nav i {
@@ -49,95 +66,54 @@
 
     h1 {
       color: #e4e6eb;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.5s ease-in-out; /* Add transition for h1 */
     }
 
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 5px solid #33a351;
-      margin: 20px auto;
+    body.fade-in h1 {
+      opacity: 1; /* Shown on load */
     }
 
-    .profile-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      background-color: #242526;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-
-    /* Stack Visualization Styles (Facebook Post Style) */
     .stack-container {
-      background-color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 500px;
-      margin: 20px auto;
-      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px; /* Add consistent spacing between elements */
+      margin-top: 20px;
     }
 
     .stack-container h2 {
-      color: #333;
-      margin-bottom: 10px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .stack-container p {
-      font-size: 16px;
-      margin-bottom: 15px;
-      color: #333;
-      line-height: 1.5;
+      margin: 0;
     }
 
     .stack-container form {
+      width: 100%; /* Ensure form takes the container width */
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center the form elements */
+      align-items: center;
+      gap: 10px; /* Add spacing between form elements */
     }
 
-    .stack-container label {
-      margin-bottom: 5px;
-      color: #444;
-      align-self: flex-start; /* Align label to the left */
-    }
-
-    .stack-container input[type="text"] {
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      color: #000;
-      width: 100%; /* Make input field take full width */
+    .stack-container form div {
+      width: 100%; /* Make input container width consistent */
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Add spacing between input and label */
     }
 
     .stack-container button {
-      background-color: #1877f2;
-      color: white;
-      padding: 10px 15px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 4px;
+      background-color: #316FF6;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
     }
 
     .stack-container button:hover {
-      background-color: #166fe5;
+      background-color: #254c9b;
     }
   </style>
 </head>
@@ -155,7 +131,7 @@
           <label for="data">Data:</label>
           <input type="text" name="data" id="data">
         </div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <div>
           <button type="submit" name="push">Push</button>
           <button type="submit" name="pop">Pop</button>
           <button type="submit" name="peek">Peek</button>
@@ -167,7 +143,6 @@
     </div>
 
   </div>
-
   <nav>
     <a href="{{ url_for('home') }}">
       <i class="fas fa-home"></i>
@@ -182,5 +157,21 @@
       Projects
     </a>
   </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.body.classList.add('fade-in');
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          document.body.classList.remove('fade-in');
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 500);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
