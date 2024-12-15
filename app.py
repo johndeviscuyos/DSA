@@ -13,7 +13,7 @@ def home():
 def profile():
     return render_template('profile.html')
 
-@app.route('/projects', methods=["GET", "POST"])  # Route for projects with methods
+@app.route('/projects', methods=["GET", "POST"])  # Route for projects methods
 def projects():
     stack_contents = ""
     if request.method == "POST":
