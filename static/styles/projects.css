@@ -1,0 +1,113 @@
+:root {
+  --background-dark: #18191a;
+  --background-light: #f0f2f5;
+  --text-dark: #e4e6eb;
+  --text-light: #242526;
+  --nav-dark: #316FF6; /* Updated navigation bar color */
+  --nav-light: #316FF6; /* Updated navigation bar color for light mode */
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main-content {
+  padding-top: 60px;
+  min-height: 25px;
+  text-align: center;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+.container {
+  padding: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+nav {
+  background-color: var(--nav-dark); /* Use the updated color */
+  top: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+nav a {
+  color: rgb(255, 255, 255);
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* Additional rules remain unchanged */
+
+.stack-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Add consistent spacing between elements */
+  margin-top: 20px;
+}
+
+.stack-container h2 {
+  margin: 0;
+}
+
+.stack-container form {
+  width: 100%; /* Ensure form takes the container width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Add spacing between form elements */
+}
+
+.stack-container form div {
+  width: 100%; /* Make input container width consistent */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add spacing between input and label */
+}
+
+.stack-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #316FF6;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stack-container button:hover {
+  background-color: #254c9b;
+}
